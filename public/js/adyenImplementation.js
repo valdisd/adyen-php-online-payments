@@ -40,6 +40,7 @@ async function createAdyenCheckout(session){
       environment: "test",
       session: session,
       showPayButton: true,
+    shopperReference: "testingShopperReference",
       paymentMethodsConfiguration: {
         ideal: {
           showImage: true,
@@ -54,6 +55,7 @@ async function createAdyenCheckout(session){
           },
           enableStoreDetails: true,
           showStoredPaymentMethods: true,
+        shopperReference: "testingShopperReference",
         },
         paypal: {
           amount: {

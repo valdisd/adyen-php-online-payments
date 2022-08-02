@@ -62,6 +62,7 @@ class CheckoutController extends Controller
             "merchantAccount" => env('ADYEN_MERCHANT_ACCOUNT'),
             "reference" => $orderRef, // required
             "returnUrl" => "${baseURL}/redirect?orderRef=${orderRef}",
+            "shopperReference" => "testingShopperReference",
             );
 
         return $this->checkout->sessions($params);
