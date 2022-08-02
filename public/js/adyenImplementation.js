@@ -52,6 +52,8 @@ async function createAdyenCheckout(session){
             value: 1000,
             currency: "EUR",
           },
+          enableStoreDetails: true,
+          showStoredPaymentMethods: true,
         },
         paypal: {
           amount: {
