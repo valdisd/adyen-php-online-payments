@@ -40,7 +40,6 @@ async function createAdyenCheckout(session){
       environment: "test",
       session: session,
       showPayButton: true,
-    shopperReference: "testingShopperReference",
       paymentMethodsConfiguration: {
         ideal: {
           showImage: true,
