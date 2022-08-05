@@ -54,7 +54,6 @@ async function createAdyenCheckout(session){
           },
           enableStoreDetails: true,
           showStoredPaymentMethods: true,
-        shopperReference: "testingShopperReference",
         },
         paypal: {
           amount: {
