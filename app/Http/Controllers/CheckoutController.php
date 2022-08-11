@@ -63,7 +63,8 @@ class CheckoutController extends Controller
             "reference" => $orderRef, // required
             "returnUrl" => "${baseURL}/redirect?orderRef=${orderRef}",
             "shopperReference" => "testingShopperReference",
-            );
+            "storePaymentMethod" => true,
+        );
 
         return $this->checkout->sessions($params);
     }
