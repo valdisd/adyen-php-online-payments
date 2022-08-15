@@ -12,6 +12,8 @@ async function startCheckout() {
 
   try {
     const checkoutSessionResponse = await callServer("/api/sessions");
+    console.log("checkoutSessionResponse");
+    console.log(checkoutSessionResponse);
     const checkout = await createAdyenCheckout(checkoutSessionResponse);
     checkout.create(type).mount(document.getElementById("payment"));
 
@@ -53,6 +55,8 @@ async function createAdyenCheckout(session){
             currency: "EUR",
           },
           enableStoreDetails: true,
+          showStoredPaymentMethods: true,
+          shopperReference: "testingShopperReference",
         },
         paypal: {
           amount: {
@@ -61,8 +65,13 @@ async function createAdyenCheckout(session){
           },
           environment: "test", // Change this to "live" when you're ready to accept live PayPal payments
           countryCode: "US", // Only needed for test. This will be automatically retrieved when you are in production.
-        }
+        },
+        showStoredPaymentMethods: true,
+        shopperReference: "testingShopperReference",
       },
+      showStoredPaymentMethods: true,
+      shopperReference: "testingShopperReference",
+      storePaymentMethod: true,
       onPaymentCompleted: (result, component) => {
         console.info("onPaymentCompleted");
         console.info(result, component);

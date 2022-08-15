@@ -47,7 +47,7 @@ class CheckoutController extends Controller
 
     public function sessions(Request $request){
         $orderRef = uniqid();
-        
+
         /*Setting base url so demo works in gitpod.io*/
         $baseURL = url()->previous();
         $baseURL = substr($baseURL, 0, -15);
@@ -64,6 +64,8 @@ class CheckoutController extends Controller
             "returnUrl" => "${baseURL}/redirect?orderRef=${orderRef}",
             "shopperReference" => "testingShopperReference",
             "storePaymentMethod" => true,
+            "shopperInteraction" => "Ecommerce",
+            "recurringProcessingModel" => "CardOnFile",
         );
 
         return $this->checkout->sessions($params);
